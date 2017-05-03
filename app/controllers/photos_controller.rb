@@ -19,7 +19,7 @@ class PhotosController < ApplicationController
 
     # render("photos/create_row.html.erb")
 
-    redirect_to("/photos/#{new_photo.id}")
+    redirect_to("/photos")
   end
 
   def show
@@ -52,10 +52,9 @@ class PhotosController < ApplicationController
   def destroy_row
 
     the_id = params[:id]
-
-    cap = params[:da_caption]
-    url = params[:da_source]
-      delete = Photo.find(the_id)
+    cap = params[:caption]
+    url = params[:source]
+    delete = Photo.find(the_id)
     delete.source = url
     delete.caption = cap
     delete.destroy

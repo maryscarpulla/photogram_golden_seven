@@ -2,11 +2,11 @@
 
 <form action = "/photos/update_photo/<%= @my_photo.id %>">
   <div>
-    <label for="Caption">The caption</label>
+    <label for="Caption">Caption</label>
     <input id = "Caption" type ="text" name = "da_caption" value = "<%= @my_photo.caption%>">
   </div>
   <div>
-    <label for ="Source">The source </label>
+    <label for ="Source">Image URL</label>
     <input id = "Source" type ="text" name = "da_source" value = "<%= @my_photo.source%>">
   </div>
   <div><button>Update Photo</button> </div>
