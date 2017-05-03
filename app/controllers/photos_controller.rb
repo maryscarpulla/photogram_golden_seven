@@ -52,9 +52,15 @@ class PhotosController < ApplicationController
   def destroy_row
 
     the_id = params[:id]
-    delete = Photo.find(the_id)
+
+    cap = params[:da_caption]
+    url = params[:da_source]
+      delete = Photo.find(the_id)
+    delete.source = url
+    delete.caption = cap
     delete.destroy
-    redirect_to("/photos/index.html.erb")
+
+    redirect_to("/photos")
 
   end
 
