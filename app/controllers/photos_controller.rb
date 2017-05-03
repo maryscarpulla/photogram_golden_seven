@@ -30,7 +30,7 @@ class PhotosController < ApplicationController
   end
 
   def edit_form
-    the_id = params[:id]
+    the_id = params[:da_id]
     @my_photo = Photo.find(the_id) #when you find by the ID, it captures all fields for you so you can do stuff like @my_photo.caption
     # @url = @my_photo.source
 
@@ -38,13 +38,24 @@ class PhotosController < ApplicationController
   end
 
   def update_row
-    redirect_to("photos/:da_id.html.erb")
+    the_id = params[:da_id]
+    update_photo = Photo.find(the_id)
+    cap = params[:da_caption]
+    url = params[:da_source]
+    update_photo.source = url
+    update_photo.caption = cap
+    update_photo.save
+    redirect_to("/photos/#{update_photo.id}")
   end
 
 
   def destroy_row
-    render("photos/destroy_row.html.erb")
-  end
 
+    the_id = params[:id]
+    delete = Photo.find(the_id)
+    delete.destroy
+    redirect_to("/photos/index.html.erb")
+
+  end
 
 end

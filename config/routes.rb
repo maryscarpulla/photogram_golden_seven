@@ -6,8 +6,8 @@ Rails.application.routes.draw do
 
 
   get("/photos/:da_id",{:controller => "photos", :action => "show"})
-  get("/photos/:id/edit",{:controller => "photos", :action => "edit_form"})
-  get("photos/update_photo/:id",{:controller => "photos", :action => "update_row"})
+  get("/photos/:da_id/edit",{:controller => "photos", :action => "edit_form"})
+  get("photos/update_photo/:da_id",{:controller => "photos", :action => "update_row"})
   get("photos/delete_photo/:id",{:controller => "photos", :action => "destroy_row"})
 
 
